@@ -1,5 +1,17 @@
 from math import sqrt
 from math import floor
+from math import prod
+
+prime_seq = [2]
+
+
+def primes(upto):
+    global prime_seq
+    if upto <= prime_seq[-1]:
+        return prime_seq
+    else:
+        prime_seq = eratosthenes(upto)
+        return prime_seq
 
 
 def eratosthenes(upto):
@@ -27,10 +39,51 @@ def factorize(n):
     """
     factors = []
     remainder = n
-    for divisor in eratosthenes(floor(sqrt(n)) + 1):
+    for divisor in primes(floor(sqrt(n)) + 1):
         while remainder % divisor == 0:
             factors.append(divisor)
             remainder //= divisor
     if remainder > 1:
         factors.append(remainder)
     return factors
+
+def factorize_canonical(n):
+    """
+    Factorize the given number
+    :param n: number which should be factorized
+    :return: dictionary, with prime factor as key and multiplicity of the prime
+             factor as value
+    """
+    factors = {}
+    remainder = n
+    for divisor in primes(floor(sqrt(n)) + 1):
+        while remainder % divisor == 0:
+            if divisor not in factors:
+                factors[divisor] = 0
+            factors[divisor] += 1
+            remainder //= divisor
+    if remainder > 1:
+        if remainder not in factors:
+            factors[remainder] = 0
+        factors[remainder] += 1
+    return factors
+
+
+def factors(n):
+    """
+    Returns a list of all factors for the given n
+    :param n: number
+    :return: list of all numbers evenly divisible
+    """
+    return [i for i in range(1, n + 1) if n % i == 0]
+
+
+def num_of_divisors(n):
+    """
+    Return the number of divisors of the given integer n
+    The algorithm uses the formula described in
+    https://en.wikipedia.org/wiki/Divisor_function
+    :param n: the integer
+    :return: the number of divisors
+    """
+    return prod([v + 1 for v in factorize_canonical(n).values()])

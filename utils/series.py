@@ -12,3 +12,13 @@ def fib(upto_predicate):
         numbers.append(current_value)
         index += 1
     return numbers
+
+
+def triangle_numbers(upto):
+    """
+    computes a sequence of all triangle numbers with length upto. The n-th triangle number is the sum
+    1 + 2 + 3 + ... + n
+    :param upto: the uppber bound
+    :return: a list of all triangle numbers below upto
+    """
+    return [n * (n + 1) // 2 for n in range(1, upto)]
