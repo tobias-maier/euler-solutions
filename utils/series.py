@@ -22,3 +22,16 @@ def triangle_numbers(upto):
     :return: a list of all triangle numbers below upto
     """
     return [n * (n + 1) // 2 for n in range(1, upto)]
+
+
+def collatz_sequence(start):
+    n = start
+    seq = []
+    while n > 1:
+        seq.append(n)
+        if n % 2 == 0:
+            n //= 2
+        else:
+            n = 3 * n + 1
+    seq.append(1)
+    return seq
