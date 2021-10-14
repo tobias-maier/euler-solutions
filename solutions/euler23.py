@@ -14,3 +14,11 @@ of two abundant numbers is less than this limit.
 
 Find the sum of all the positive integers which cannot be written as the sum of two abundant numbers.
 """
+from utils.numbers import is_abundant
+
+limit = 28123
+
+abundant_numbers = [i for i in range(1, limit) if is_abundant(i)]
+sum_of_abundant_numbers = {a + b for a in abundant_numbers for b in abundant_numbers if a + b <= limit}
+s = sum(set(range(1, limit)) - sum_of_abundant_numbers)
+print(s)
