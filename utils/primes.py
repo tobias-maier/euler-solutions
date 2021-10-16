@@ -10,9 +10,12 @@ def primes(upto):
     if upto <= prime_seq[-1]:
         return prime_seq
     else:
-        prime_seq = eratosthenes(upto)
+        prime_seq = eratosthenes(max(2 * upto, 1000))
         return prime_seq
 
+
+def is_prime(n):
+    return n in primes(n)
 
 def eratosthenes(upto):
     """
