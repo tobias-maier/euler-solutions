@@ -1,3 +1,5 @@
+from collections import deque
+
 def proper_divisors(n):
     """
     returns a list of all proper divisors of the given number n
@@ -11,3 +13,17 @@ def is_abundant(n):
     proper divisors is greater than the given number.
     """
     return n < sum(proper_divisors(n))
+
+
+def rotations(n):
+    """
+    returns all rotations of the digits of the given number.
+
+    For example 347 -> 734,473
+    """
+    rots = []
+    d = deque(str(n))
+    for _ in range(0, len(str(n))):
+        rots.append(int(''.join(d)))
+        d.rotate()
+    return rots
