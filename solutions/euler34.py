@@ -7,10 +7,10 @@ Note: As 1! = 1 and 2! = 2 are not sums they are not included.
 """
 from math import factorial
 
-curious_number = []
+curious_numbers = []
 fact_lookup = {str(i) :factorial(i) for i in range(0, 10)}
 
 for n in range(3, 9_999_999):
     if sum([fact_lookup[d] for d in str(n)]) == n:
-        curious_number.append(n)
-print(sum(curious_number))
+        curious_numbers.append(n)
+print(sum(curious_numbers))
