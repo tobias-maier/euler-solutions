@@ -2,20 +2,21 @@ from math import sqrt
 from math import floor
 from math import prod
 
-prime_seq = [2]
+_prime_seq = [2]
 
 
 def primes(upto):
-    global prime_seq
-    if upto <= prime_seq[-1]:
-        return prime_seq
+    global _prime_seq
+    if upto <= _prime_seq[-1]:
+        return _prime_seq
     else:
-        prime_seq = eratosthenes(max(2 * upto, 1000))
-        return prime_seq
+        _prime_seq = eratosthenes(max(2 * upto, 1000))
+        return _prime_seq
 
 
 def is_prime(n):
     return n in primes(n)
+
 
 def eratosthenes(upto):
     """
@@ -26,7 +27,8 @@ def eratosthenes(upto):
     """
     candidates = [True] * upto
     i = 2
-    while i < sqrt(upto):
+    limit = sqrt(upto)
+    while i < limit:
         if candidates[i]:
             for j in range(i**2, upto, i):
                 candidates[j] = False
