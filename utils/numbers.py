@@ -1,4 +1,5 @@
 from collections import deque
+from math import sqrt
 
 def proper_divisors(n):
     """
@@ -49,3 +50,7 @@ def champernowne_seq(length):
         seq.append(str(counter))
         counter += 1
     return ''.join(seq)
+
+
+def is_triangle_number(n):
+    return (sqrt(2 * n + 0.25) - 0.5).is_integer()
