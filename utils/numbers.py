@@ -27,3 +27,17 @@ def rotations(n):
         rots.append(int(''.join(d)))
         d.rotate()
     return rots
+
+
+def is_pandigital(digits, grade=9):
+    if len(str(digits)) != grade:
+        return False
+    return set(range(1, grade + 1)).issubset(set(map(int, str(digits))))
+
+
+def unique_digital(iter):
+    for v in iter:
+        strv = str(v)
+        if len(set(strv)) == len(strv):
+            yield v
+

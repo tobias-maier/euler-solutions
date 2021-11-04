@@ -13,6 +13,7 @@ from utils.primes import primes
 def is_truncatable_prime(n, prime_set):
     return {int(n[i:]) for i in range(0, len(n))} | {int(n[:i]) for i in range(1, len(n))} <= prime_set
 
+
 prime_numbers = set(primes(1_000_000))
 
 s = sum([p for p in (prime_numbers - {2,3,5,7}) if is_truncatable_prime(str(p), prime_numbers)])
