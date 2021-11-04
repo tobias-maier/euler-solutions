@@ -17,6 +17,7 @@ integer with (1,2, ... , n) where n > 1?
 from utils.numbers import is_pandigital
 from utils.numbers import unique_digital
 
+
 def concat_product(n, ntup):
     return int(''.join(map(lambda x: str(x * n), ntup)))
 
