@@ -22,4 +22,6 @@ def concat_product(n, ntup):
 
 
 for n in unique_digital(range(9876, 8999, -1)):
-    print(n, end=' ')
+    if is_pandigital(concat_product(n, (1, 2))):
+        print(concat_product(n, (1, 2)))
+        break
