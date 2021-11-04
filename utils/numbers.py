@@ -41,3 +41,11 @@ def unique_digital(iter):
         if len(set(strv)) == len(strv):
             yield v
 
+
+def champernowne_seq(length):
+    seq = []
+    counter = 1
+    while len(seq) < length:
+        seq.append(str(counter))
+        counter += 1
+    return ''.join(seq)
