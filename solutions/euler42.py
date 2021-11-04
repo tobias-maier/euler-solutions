@@ -6,10 +6,9 @@ alues we form a word value. For example, the word value for SKY is 19 + 11 + 25 
 If the word value is a triangle number then we shall call the word a triangle word.
 Using words.txt (right click and 'Save Link/Target As...'), a 16K text file containing nearly two-thousand 
 common English words, how' many are triangle words?
-
-0.5 * (n² + n) = 0.5 * (n² + n + 1/4) - 1/8 = 0.5*(n + 1/2)² - 1/8 = x --> sqrt(2x + 1/4) - 1/2 = n
 """
 from utils.numbers import is_triangle_number
+
 
 def word_value(w):
     return sum(ord(c) - ord('A') + 1 for c in w)
