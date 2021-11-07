@@ -54,3 +54,15 @@ def champernowne_seq(length):
 
 def is_triangle_number(n):
     return (sqrt(2 * n + 0.25) - 0.5).is_integer()
+
+
+def triangle_number(n):
+    return n * (n + 1) // 2
+
+
+def pentagonal_number(n):
+    return n * (3 * n - 1) // 2
+
+
+def hexagonal_number(n):
+    return n * (2 * n - 1)
