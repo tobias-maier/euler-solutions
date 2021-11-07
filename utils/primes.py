@@ -92,3 +92,10 @@ def num_of_divisors(n):
     :return: the number of divisors
     """
     return prod([v + 1 for v in factorize_canonical(n).values()])
+
+
+def goldbach_decomposition(n):
+    for p in primes(n - 1):
+        if p < n and sqrt((n - p) / 2).is_integer():
+            return p, int(sqrt((n - p) // 2))
+    raise ValueError(n)
