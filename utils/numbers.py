@@ -67,3 +67,22 @@ def pentagonal_number(n):
 def hexagonal_number(n):
     return n * (2 * n - 1)
 
+
+def is_probable_lynchrel(n, iterations):
+
+    def _is_palindrom(v):
+        s = str(v)
+        for i in range(0, len(s) // 2):
+            if s[i] != s[len(s) - 1 - i]:
+                return False
+        return True
+
+    def _reverse(v):
+        return int(str(v)[::-1])
+
+    testee = n
+    for i in range(0, iterations):
+        testee += _reverse(testee)
+        if _is_palindrom(testee):
+            return False
+    return True
